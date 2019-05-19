@@ -1,16 +1,16 @@
-## Pager
+## Paginator
 
-The library for paging
+The library for pagination
 
 Author: Sergii Zazymko
 
 ## Install
 
-`$ composer reaquire sergiizazymko/pager`
+`$ composer reaquire sergiizazymko/paginator`
 
 ## Usage
 
 ```php
-$obj = new Pager(
+$obj = new Paginator(
 );
 ```
