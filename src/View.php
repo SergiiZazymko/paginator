@@ -8,7 +8,11 @@
 
 namespace SergiiZazymko\Paginator;
 
-
+/**
+ * Class View
+ *
+ * @package SergiiZazymko\Paginator
+ */
 class View
 {
 

@@ -9,8 +9,9 @@
 namespace SergiiZazymko\Paginator;
 
 /**
- * Class DirPager
- * @package SergiiZazymko\Pager
+ * Class DirPaginator
+ *
+ * @package SergiiZazymko\Paginator
  */
 class DirPaginator extends Paginator
 {
@@ -20,12 +21,13 @@ class DirPaginator extends Paginator
     protected $dirName;
 
     /**
-     * DirPager constructor.
-     * @param View $view
+     * DirPaginator constructor.
+     *
+     * @param View   $view
      * @param string $dirName
-     * @param int $itemsPerPage
-     * @param int $visibleLinksCount
-     * @param null $parameters
+     * @param int    $itemsPerPage
+     * @param int    $visibleLinksCount
+     * @param null   $parameters
      * @param string $counterParam
      */
     public function __construct(
@@ -35,8 +37,7 @@ class DirPaginator extends Paginator
         $visibleLinksCount = 3,
         $parameters = null,
         $counterParam = 'page'
-    )
-    {
+    ) {
         $this->dirName = $dirName;
         parent::__construct($view, $itemsPerPage, $visibleLinksCount, $parameters, $counterParam);
     }
@@ -46,13 +47,19 @@ class DirPaginator extends Paginator
      */
     public function getTotalItemsCount()
     {
-        /** @var int $fileCounter */
+        /**
+        * @var int $fileCounter
+        */
         $fileCounter = 0;
 
-        /** @var \DirectoryIterator $directoryIterator */
+        /**
+        * @var \DirectoryIterator $directoryIterator
+        */
         $directoryIterator = new \DirectoryIterator($this->dirName);
 
-        /** @var \DirectoryIterator $file */
+        /**
+         * @var \DirectoryIterator $file
+        */
         foreach ($directoryIterator as $file) {
             if ($file->isFile()) {
                 $fileCounter++;
@@ -60,7 +67,6 @@ class DirPaginator extends Paginator
         }
 
         return $fileCounter;
-
     }
 
     /**
@@ -68,26 +74,38 @@ class DirPaginator extends Paginator
      */
     public function getCurrentItems()
     {
-        /** @var int $currentPage */
+        /**
+        * @var int $currentPage
+        */
         $currentPage = $this->getCurrentPage();
 
         if ($currentPage <= 0 || $currentPage > $this->getTotalPageCount()) {
             return 0;
         }
 
-        /** @var array $currentItems */
+        /**
+        * @var array $currentItems
+        */
         $currentItems = [];
 
-        /** @var \DirectoryIterator $directoryIterator */
+        /**
+        * @var \DirectoryIterator $directoryIterator
+        */
         $directoryIterator = new \DirectoryIterator($this->dirName);
 
-        /** @var int $counter */
+        /**
+        * @var int $counter
+        */
         $counter = -1;
 
-        /** @var int $firstItem */
+        /**
+        * @var int $firstItem
+        */
         $firstItem = $this->getItemsPerPage() * ($this->getCurrentPage() - 1);
 
-        /** @var \DirectoryIterator $file */
+        /**
+        * @var \DirectoryIterator $file
+        */
         foreach ($directoryIterator as $file) {
             if ($file->isFile()) {
 
@@ -102,7 +120,7 @@ class DirPaginator extends Paginator
                 }
 
                 $currentItems[] = $file->getPathname();
-             }
+            }
         }
 
         return $currentItems;

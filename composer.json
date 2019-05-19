@@ -11,11 +11,16 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "psr-4": {
             "SergiiZazymko\\Paginator\\": "src/"
         }
+    },
+    "scripts": {
+        "cs-check": "./vendor/squizlabs/php_codesniffer/bin/phpcs ./src/\n",
+        "cs-fix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf -n ./src/\n"
     }
 }

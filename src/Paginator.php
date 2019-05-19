@@ -9,32 +9,44 @@
 namespace SergiiZazymko\Paginator;
 
 /**
- * Class Pager
- * @package SergiiZazymko\Pager
+ * Class Paginator
+ *
+ * @package SergiiZazymko\Paginator
  */
 abstract class Paginator
 {
-    /** @var View $view */
+    /**
+     * @var View $view 
+     */
     protected $view;
 
-    /** @var string $parameters */
+    /**
+     * @var string $parameters 
+     */
     protected $parameters;
 
-    /** @var string $counterParam */
+    /**
+     * @var string $counterParam 
+     */
     protected $counterParam;
 
-    /** @var int $visibleLinksCount */
+    /**
+     * @var int $visibleLinksCount 
+     */
     protected $visibleLinksCount;
 
-    /** @var int $itemsPerPage */
+    /**
+     * @var int $itemsPerPage 
+     */
     protected $itemsPerPage;
 
     /**
-     * Pager constructor.
-     * @param View $view
-     * @param int $itemsPerPage
-     * @param int $visibleLinksCount
-     * @param null $getParams
+     * Paginator constructor.
+     *
+     * @param View   $view
+     * @param int    $itemsPerPage
+     * @param int    $visibleLinksCount
+     * @param null   $parameters
      * @param string $counterParam
      */
     public function __construct(
@@ -43,8 +55,7 @@ abstract class Paginator
         $visibleLinksCount = 3,
         $parameters = null,
         $counterParam = 'page'
-    )
-    {
+    ) {
         $this->view = $view;
         $this->parameters = $parameters;
         $this->itemsPerPage = $itemsPerPage;
@@ -54,13 +65,13 @@ abstract class Paginator
 
     /**
      * @abstract
-     * @return int
+     * @return   int
      */
     abstract public function getTotalItemsCount();
 
     /**
      * @abstract
-     * @return array
+     * @return   array
      */
     abstract public function getCurrentItems();
 
@@ -117,10 +128,14 @@ abstract class Paginator
      */
     public function getTotalPageCount()
     {
-        /** @var int $totalPageCount */
+        /**
+        * @var int $totalPageCount
+        */
         $totalPageCount = $this->getTotalItemsCount();
 
-        /** @var int $result */
+        /**
+        * @var int $result
+        */
         $result = intval($totalPageCount / $this->getItemsPerPage());
 
         if ($result - $totalPageCount / $this->getItemsPerPage() !== 0) {
