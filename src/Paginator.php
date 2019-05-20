@@ -11,6 +11,7 @@ namespace SergiiZazymko\Paginator;
 /**
  * Class Paginator
  *
+ * @abstract
  * @package SergiiZazymko\Paginator
  */
 abstract class Paginator

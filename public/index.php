@@ -8,10 +8,15 @@
 
 require_once '../vendor/autoload.php';
 
-$dirPager = new \SergiiZazymko\Paginator\DirPaginator(
-    new \SergiiZazymko\Paginator\View(),
-    '/',
-    5
+$paginator = new \SergiiZazymko\Paginator\DirPaginator(
+    new \SergiiZazymko\Paginator\DirView(),
+    '/home/sergii/.config',
+    5,
+    3
 );
 
-var_dump($dirPager->getCurrentItems());die;
+foreach ($paginator->getCurrentItems() as $item) {
+    echo "<p>$item</p>";
+}
+
+echo "<p>$paginator</p>";
