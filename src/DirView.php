@@ -37,7 +37,7 @@ class DirView extends View
         $paginatorString .= $this->link('&lt;&lt;', 1) . '...';
 
         if ($curentPage !== 1) {
-            $paginatorString .= $this->link('&lt;', 1) . ' ';
+            $paginatorString .= $this->link('&lt;', $curentPage - 1) . ' ';
         }
 
         if ($curentPage > $visibleLinksCount + 1) {
