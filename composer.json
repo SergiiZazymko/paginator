@@ -3,6 +3,7 @@
     "description": "The library for paging",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Sergii Zazymko",

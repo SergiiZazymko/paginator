@@ -6,7 +6,7 @@ Author: Sergii Zazymko
 
 ## Install
 
-`$ composer reaquire sergiizazymko/paginator`
+`$ composer require sergiizazymko/paginator`
 
 ## Usage
 
