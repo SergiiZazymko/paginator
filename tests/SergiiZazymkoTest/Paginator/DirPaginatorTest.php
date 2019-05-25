@@ -22,12 +22,18 @@ class DirPaginatorTest extends TestCase
     /** @var DirPaginator$instance */
     private $instance;
 
+    /**
+     *
+     */
     protected function setUp(): void
     {
         $this->instance = new DirPaginator(new DirView);
         parent::setUp();
     }
 
+    /**
+     *
+     */
     public function testInstance()
     {
         $this->assertInstanceOf(Paginator::class, $this->instance);
