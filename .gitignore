@@ -15,6 +15,7 @@ data/logs/
 data/cache/
 data/sessions/
 data/tmp/
+data/doc/
 temp/
 
 #Doctrine 2

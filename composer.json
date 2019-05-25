@@ -13,15 +13,26 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.0.0",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "jms/serializer": "1.7.*",
+        "phpdocumentor/phpdocumentor": "^2.9"
     },
     "autoload": {
         "psr-4": {
-            "SergiiZazymko\\Paginator\\": "src/"
+            "SergiiZazymko\\Paginator\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SergiiZazymkoTest\\Paginatror\\": "test/"
         }
     },
     "scripts": {
         "cs-check": "./vendor/squizlabs/php_codesniffer/bin/phpcs ./src/\n",
-        "cs-fix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf -n ./src/\n"
+        "cs-fix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf -n ./src/\n",
+        "doc": "rm -Rf ./data/doc && ./vendor/bin/phpdoc -d src -t ./data/doc\n",
+        "test": "./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/\n"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
     }
 }
